@@ -1,4 +1,4 @@
-[# Magento 2 Quick Order Module
+# Magento 2 Quick Order Module
 
 ## Опис
 
