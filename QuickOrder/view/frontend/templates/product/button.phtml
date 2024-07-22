@@ -1,0 +1,29 @@
+<button id="quick-order-button" type="button" class="action primary">
+    <?= __('Купити в 1 клік') ?>
+</button>
+
+<script type="text/javascript">
+    require(['jquery', 'Magento_Customer/js/customer-data'], function ($, customerData) {
+        $('#quick-order-button').on('click', function () {
+            var sku = '<?= $block->escapeHtml($block->getProductSku()) ?>';
+            var phoneNumber = prompt('Введите ваш номер телефона:');
+            if (phoneNumber) {
+                $.ajax({
+                    url: '<?= $block->getUrl('quickorder/index/save') ?>',
+                    type: 'POST',
+                    data: {sku: sku, phone_number: phoneNumber},
+                    success: function (response) {
+                        if (response.success) {
+                            alert('Спасибо! Ваш заказ принят.');
+                        } else {
+                            alert('Произошла ошибка. Попробуйте еще раз.');
+                        }
+                    },
+                    error: function () {
+                        alert('Произошла ошибка. Попробуйте еще раз.');
+                    }
+                });
+            }
+        });
+    });
+</script>

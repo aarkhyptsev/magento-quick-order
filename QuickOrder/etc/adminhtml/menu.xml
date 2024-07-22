@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/menu_configuration.xsd">
+    <menu>
+        <add id="Andrew_QuickOrder::order"
+             title="Quick Orders"
+             module="Andrew_QuickOrder"
+             sortOrder="10"
+             parent="Magento_Backend::content"
+             action="quickorder/order/index"
+             resource="Andrew_QuickOrder::order"/>
+    </menu>
+</config>
